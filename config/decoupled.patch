@@ -1,0 +1,48 @@
+diff --git a/composer.json b/composer.json
+index b77dc17..ac60700 100644
+--- a/composer.json
++++ b/composer.json
+@@ -1,5 +1,5 @@
+ {
+-    "name": "pantheon-upstreams/decoupled-drupal-composer-managed",
++    "name": "pantheon-upstreams/drupal-composer-managed",
+     "description": "Install Drupal 9 with Composer on Pantheon.",
+     "type": "project",
+     "license": "MIT",
+@@ -28,7 +28,7 @@
+     "conflict": {
+             "drupal/drupal": "*"
+     },
+-    "minimum-stability": "alpha",
++    "minimum-stability": "stable",
+     "prefer-stable": true,
+     "extra": {
+         "drupal-scaffold": {
+@@ -57,10 +57,10 @@
+             "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+         },
+         "composer-exit-on-patch-failure": true,
++        "enable-patching": true,
+         "patchLevel": {
+             "drupal/core": "-p2"
+-        },
+-        "enable-patching": true
++        }
+     },
+     "autoload": {
+         "classmap": [
+diff --git a/upstream-configuration/composer.json b/upstream-configuration/composer.json
+index 46db43a..2e6bc11 100644
+--- a/upstream-configuration/composer.json
++++ b/upstream-configuration/composer.json
+@@ -7,10 +7,7 @@
+             "url": "https://packages.drupal.org/8"
+         }
+     ],
+-    "minimum-stability": "alpha",
+     "require": {
+-        "drupal/pantheon_decoupled_profile": "^1.0@alpha",
+-        "drupal/pantheon_decoupled_umami_demo": "^1.0@alpha"
+     },
+     "extra": {
+         "_README": "To make a custom upstream, clone this repository and add any dependencies to be provided by this upstream to this composer.json file. Leave the root-level composer.json file for the exclusive use of each individual site; do not modify it after your custom upstream has been published. See https://pantheon.io/docs/create-custom-upstream for more information."
